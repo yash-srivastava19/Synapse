@@ -1,0 +1,49 @@
+body {
+    background-color: #f5f5dc; /* cream color */
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #c68840; /* light green color */
+    padding: 8px;
+    margin: 0; /* adjust this value to change the margin outside the header */
+    text-align: left;
+    color: white;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.header h1 {
+    display: inline;
+    margin-right: 20px;
+    font-size: 20px; /* adjust this value to make the header text smaller or larger */
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 16px; /* adjust this value to make the navigation links smaller or larger */
+}
+
+.header nav a:hover {
+    text-decoration: underline;
+}
+
+.post {
+    border: 1px solid #000; /* black border */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.vote-buttons img {
+    width: 20px; /* adjust this value to change the width of the images */
+    height: 20px; /* adjust this value to change the height of the images */
+}

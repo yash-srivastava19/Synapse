@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block content %}
+<body>
+    <div class="background">
+        <div class="login-box">
+            <h1>Register</h1>
+            <form id="register-form" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" value="Register">
+            </form>
+            <p>Already have a Synapse account?</p>
+            <a href="{{ url_for('login') }}">Login</a>
+
+            <script>
+                document.getElementById('register-form').addEventListener('submit', function(e) {
+                    var email = document.getElementById('email').value;
+                    if (!email.endsWith('nitw.ac.in')) {
+                        alert('Synapse is only allowed for NITW students.');
+                        e.preventDefault();
+                    }
+                });
+            </script>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <h2>Comments</h2>
+    {% for comment in post.comments %}
+        <div class="comment">
+            <p>{{ comment.content }}</p>
+            <p>Posted by {{ comment.user.username }} on {{ comment.date_posted.strftime('%Y-%m-%d') }}</p>
+        </div>
+    {% endfor %}
+    <a href="{{ url_for('comment', post_id=post.id) }}">Add a comment</a>
+{% endblock %}

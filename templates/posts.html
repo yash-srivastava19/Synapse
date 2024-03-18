@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posts</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+</head>
+{% extends 'layout.html' %}
+
+{% block content %}
+<body>
+    <h1>Posts</h1>
+    {% for post in posts %}
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <div class="vote-buttons">
+                <a href="{{ url_for('upvote', post_id=post.id) }}"><img src="{{ url_for('static', filename='up-arrow.png') }}" alt="Upvote"></a>
+                <a href="{{ url_for('downvote', post_id=post.id) }}"><img src="{{ url_for('static', filename='down-arrow.png') }}" alt="Downvote"></a>
+                <a href="{{ url_for('comment', post_id=post.id) }}">Comment</a>
+                {% for comment in post.comments %}
+                    <div class="comment">
+                        <p>{{ comment.content }}</p>
+                        <p>Posted by {{ comment.user.username }} on {{comment.date_posted.strftime('%Y-%m-%d')}} </p>
+                    </div>
+                {% endfor %}
+            </div>
+            <p>Upvotes: {{ post.upvotes }} Downvotes: {{ post.downvotes }}</p>
+        </div>
+    {% endfor %}
+    <a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>All Posts</h1>
+    {% for post in posts %}
+        <div class="post">
+            <h2><a href="{{ url_for('show', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <p>{{ post.content }}</p>
+            <p>Posted by {{ post.user.username }} on {{ post.date_posted.strftime('%Y-%m-%d') }}</p>
+        </div>
+    {% else %}
+        <p>No posts yet.</p>
+    {% endfor %}
+{% endblock %}
